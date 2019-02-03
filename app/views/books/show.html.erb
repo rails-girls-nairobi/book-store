@@ -1,0 +1,12 @@
+<div class="centered col-sm-6">
+  <h2><%= @book.title %></h2>
+  <hr>
+  <p>
+    <%= @book.description %>
+    <br>
+    <br>
+    <small>Author | <%= @book.author %></small>
+  </p>
+
+  <%= link_to 'All books', books_path %>
+</div>
