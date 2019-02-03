@@ -5,18 +5,7 @@
   <div class="col-sm-12">
     <div class="col-sm-6">
       <%= form_for @book, url: { action: 'create' } do |f| %>
-        <div class='form-group'>
-          <%= f.text_field :title, placeholder: 'Title', class: 'form-control' %>
-        </div>
-        <div class='form-group'>
-          <%= f.text_field :author, placeholder: 'Author', class: 'form-control' %>
-        </div>
-        <div class='form-group'>
-          <%= f.text_area :description, placeholder: 'Description', class: 'form-control' %>
-        </div>
-        <div class='form-group'>
-          <%= f.submit 'Create', class: 'btn btn-primary' %>
-        </div>
+        <%= render partial: 'form', locals: { f: f , save_prompt: 'Create Book' }%>
       <% end %>
 
       <%= link_to 'Back to books', books_path %>

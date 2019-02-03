@@ -1,10 +1,10 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.paginate(:page => params[:page], per_page: 4)
+    @books = Book.paginate(page: params[:page], per_page: 4)
   end
 
   def show
-    @book = Book.find(params[:id])
+    @book = Book.find(book_id)
   end
 
   def new
@@ -13,11 +13,36 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-    if @book.save
-      redirect_to book_path(@book)
-    else
-      render 'new'
+    respond_to do |format|
+      if @book.save
+        format.html { redirect_to @book, notice: 'Created new book successfully' }
+      else
+        format.html { render 'new' }
+      end
     end
+  end
+
+  def edit
+    @book = Book.find(book_id)
+  end
+
+  def update
+    @book = Book.find(book_id)
+    @book.update(book_params)
+    respond_to do |format|
+      if @book.save
+        format.html { redirect_to @book, notice: 'Successfully updated book' }
+      else
+        format.html { render 'edit' }
+      end
+    end
+  end
+
+  def destroy
+    @book = Book.find(book_id)
+    @book.destroy
+    flash[:notice] = 'Book has been deleted'
+    redirect_to books_path
   end
 
   private
@@ -28,5 +53,9 @@ class BooksController < ApplicationController
       :author,
       :description
     )
+  end
+
+  def book_id
+    params[:id]
   end
 end

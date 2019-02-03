@@ -1,0 +1,14 @@
+<%= form_for @book do |f| %>
+  <div class='form-group'>
+    <%= f.text_field :title, placeholder: 'Title', class: 'form-control' %>
+  </div>
+  <div class='form-group'>
+    <%= f.text_field :author, placeholder: 'Author', class: 'form-control' %>
+  </div>
+  <div class='form-group'>
+    <%= f.text_area :description, placeholder: 'Description', class: 'form-control' %>
+  </div>
+  <div class='form-group'>
+    <%= f.submit save_prompt, class: 'btn btn-primary' %>
+  </div>
+<% end %>
