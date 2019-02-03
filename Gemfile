@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bootstrap-sass', '~> 3.4'
 gem 'truncate_html', '~> 0.9.3'
+gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
