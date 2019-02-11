@@ -5,6 +5,10 @@ class BooksController < ApplicationController
     @books = Book.paginate(page: params[:page], per_page: 4)
   end
 
+  def user_books
+    @books = current_user.books.paginate(page: params[:page], per_page: 4)
+  end
+
   def show
     @book = Book.find(book_id)
   end
@@ -14,7 +18,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(book_params)
+    @book = current_user.books.new(book_params)
     respond_to do |format|
       if @book.save
         format.html { redirect_to @book, notice: 'Created new book successfully' }
