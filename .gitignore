@@ -27,4 +27,4 @@
 /config/master.key
 
 # Ignore visual studio code settings
-.vscode
+/.vscode
