@@ -202,6 +202,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   devise (~> 4.5)
+  globalid (~> 0.4.2)
   graphiql-rails
   graphql (~> 1.9, >= 1.9.2)
   jbuilder (~> 2.5)

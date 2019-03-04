@@ -1,11 +1,27 @@
 module Mutations
   class CreateSchool < Mutations::BaseObject
-    description 'Fields required to create a school'
+    graphql_name 'CreateSchoolMutation'
+    description 'Create school mutation'
 
-    argument :name, String, required: true
+    argument :school, Types::SchoolInputType, required: true
 
-    def resolve(name:)
-      School.create!(name: name)
+    field :school, Types::SchoolType, null: true
+    field :errors, [String], null: false
+
+    def resolve(school:)
+      new_school = School.new(school.to_h)
+
+      if new_school.save
+        {
+          school: new_school,
+          errors: []
+        }
+      else
+        {
+          school: new_school,
+          errors: errors_for_record(new_school)
+        }
+      end
     end
   end
 end

@@ -33,6 +33,7 @@ gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 gem 'devise', '~> 4.5'
 gem 'graphql', '~> 1.9', '>= 1.9.2'
+gem 'globalid', '~> 0.4.2'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
