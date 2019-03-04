@@ -40,4 +40,4 @@ class BookstoreSchema < GraphQL::Schema
   end
 end
 
-# BookstoreSchema.graphql_definition
+BookstoreSchema.graphql_definition
